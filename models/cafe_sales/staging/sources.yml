@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: cafe_sales_raw
+    database: fluted-reason-494507-g4
+    schema: cafe_sales_raw
+    tables:
+      - name: cafe_sales_cleaned
