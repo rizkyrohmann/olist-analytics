@@ -1,0 +1,32 @@
+version: 2
+
+models:
+  - name: stg_cafe_sales
+    description: "Staged and cleaned cafe sales transactions"
+    columns:
+      - name: transaction_id
+        description: "Unique transaction identifier"
+        tests:
+          - unique
+          - not_null
+
+      - name: item
+        description: "Menu item purchased"
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['Juice', 'Coffee', 'Salad', 'Cake', 'Sandwich', 'Smoothie', 'Cookie', 'Tea']
+
+      - name: location
+        description: "Transaction location"
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['In-store', 'Takeaway']
+
+      - name: payment_method
+        description: "Payment method used"
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['Cash', 'Credit Card', 'Digital Wallet']
